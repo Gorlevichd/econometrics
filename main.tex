@@ -1454,5 +1454,124 @@ $u_{t}$ удовлетворяют ТГМ
         \[l_t = \ell_{t - 1} + b_{t - 1} + \alpha u_{t}\]
         \[y_t = \ell_{t - 1} + b_{t - 1} + s_{t - 12} + u_t\]
     \end{enumerate}
+    \item Hodrick-Prescott filter
+    \begin{enumerate}
+        \item Ряд разбивается на тренд $\tau$, циклическую компоненту $c_t$, ошибка $\varepsilon_t$
+        \item Подбирается тренд компонента из
+        \[min_\tau(\sum_{t = 1}^T(y_t - \tau_t)^2 + \lambda \sum_{t = 2}^{T - 1}[(\tau_{t+1} - \tau_{t}) - (\tau_t - \tau_{t - 1})]^2)\]
+        \[\lambda = \begin{cases}
+            100, \textrm{ for annual data} \\
+            1600, \textrm{ for quarterly data} \\
+            14400, \textrm{ for montly data} \\
+        \end{cases}\]
+        \item Критика: Возникают смещения на концах оцениваемых интервалов
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Прогнозирование с помощью временных рядов}
+
+\subsubsection{Прогнозирование по модели ARMA(p, q)}
+
+По критерию MSE наилучший прогноз на момент T+1:
+\[E(Y_{T+1} \mid \Omega_{T})\]
+\[\Omega_{T} \textrm{- вся информация, известная на момент времени T}\]
+\[E(\varepsilon_{T+1} \mid \Omega_{T}) = 0\]
+\[E(\varepsilon_{T} \mid \Omega_{T}) = \varepsilon_T\]
+
+\underline{AR(1)}
+\[Y_t = \beta_0 + \beta_1 Y_{t - 1} + \varepsilon_t\]
+\[\hat Y_{T + 1} = E(Y_{T+1} \mid \Omega_{T}) = \beta_0 + \beta_1 Y_T\]
+\[e_{T + 1} = Y_{T+1} - \hat Y_{T + 1} = Y_{T + 1} - E(Y_{T+1} \mid \Omega_{T}) = \]
+\[= \beta_0 + \beta_1 Y_T + \varepsilon_{T + 1} - \beta_0 - \beta_1 Y_T = \varepsilon_T\]
+\[Var(e_{T + 1}) = \sigma_{\varepsilon}^{2}\]
+\[Y_{T + 2} = \beta_0 + \beta_1 \hat Y_{T + 1} = \beta_0 + \beta_1(\beta_0 + \beta_1 Y_T)\]
+\[e_{T+2} = \varepsilon_{T + 2} + \beta_1 \varepsilon_{T + 1}\]
+\[Var(e_{T+2}) = \sigma_{\varepsilon}^{2}(1 + \beta_{1}^{2})\]
+\[e_{T + 3} = \varepsilon_{T + 3} + \beta_1 \varepsilon_{T + 2} + \beta_{1}^{2} \varepsilon_{T + 1}\]
+\[Var(e_{T + 3}) = \sigma_{\varepsilon}^{2}(1 + \beta_{1}^{2} + \beta_{1}^{4})\]
+\[Var(e_{T +s}) \rightarrow \frac{\sigma_{\varepsilon}^{2}}{1 - \beta_{1}^{2}}\]
+
+\underline{MA(1)}
+\[Y_{t} = \beta_0 + \varepsilon_{t} + \alpha_{1}\varepsilon_{t-1}\]
+\[\hat Y_{T + 1} = E(Y_{T + 1} \mid \Omega_{T}) = \beta_0 + \alpha_1 \varepsilon_T\]
+\[\hat Y_{T + s} = \beta_0, s \geq 2\]
+\[Var(e_{T + 1}) = \sigma_{\varepsilon}^{2}\]
+\[Var(e_{T + s}) = \sigma_{\varepsilon}^{2}(1 + \alpha_{1}^{2}), s \geq 2\]
+
+\underline{ARMA(1, 1)}
+\[e_{T + 1} = \varepsilon_{T + 1}\]
+\[Var(e_{T + 1}) = \sigma_{\varepsilon}^{2}\]
+\[e_{T + 2} = \varepsilon_{T + 2} + \alpha_1 \varepsilon_{T + 1} + \beta_{1} \varepsilon_{T + 1}\]
+\[Var(e_{T + 2}) = \sigma_{\varepsilon}^{2}(1 + (\alpha_{1} + \beta_{1})^{2})\]
+
+\subsubsection{Коинтеграция временных рядов}
+
+Станционарный временной ряд: $X_t \sim I(0)$
+
+Если только разность порядка d является станционарной, то этот ряд называется интегрированным порядка d:
+$X_t \sim I(d)$
+
+
+\textbf{Свойства интегрированных временных рядов}
+
+\begin{enumerate}
+    \item $X_t \sim I(0), Y_t \sim I(1) \rightarrow Z_t = X_t + Y_t \sim I(1)$
+    \item $X_t \sim I(d) \rightarrow Z_t = a + bX_t \sim I(d)$
+    \item $X_t \sim I(d_1), Y_t \sim I(d_2) \rightarrow Z_t = aX_t + bY_t \sim I(d_{max(d_1, d_2)})$
+    \item $X_t \sim I(d), Y_t \sim I(d) \rightarrow Z_t = aX_t + bY_t \sim I(d^{*} \leq d)$
+\end{enumerate}
+
+\textbf{Определение}: Коинтегрированные временные ряды
+
+\begin{center}
+    Если $X_t \sim I(d), Y_t \sim I(d)$, а $Z_t = aX_t + bY_t \sim I(0)$, то ряды $X_t, Y_t$ называются коинтегрированными
+\end{center}
+
+\textbf{Коинтеграция}
+
+Если:
+
+\[Y_t = \beta_0 + \beta_1 X_t + \varepsilon_t\]
+\[\varepsilon_t = Y_t - \beta_0 - \beta_1 X_t\]
+
+$Y_t, X_t$ - временные ряды одного порядка, коэффициент $\beta_1$ является значимым, а ошибки нестанционарны, то имеет место \textit{мнимая регрессия}
+
+Если $\varepsilon_t$ станционарны, то имеет место \textit{коинтеграция}
+
+\textbf{Проверка на практике}
+
+\begin{enumerate}
+    \item Оцениваем регрессию одного ряда на другой
+    \item Сохраняем остатки
+    \item Смотрим на их ACF, PACF
+    \item Применять тесты DF, ADF нельзя
+    \item Надо использовать таблицу Маккинона
+\end{enumerate}
+
+\subsection{Модели с распредленными лагами}
+
+\begin{enumerate}
+    \item Модели с распределенными лагами - лаги у X
+    \item Регрессионные динамические модели - лаги у Y
+    \item ADL - лаги у X и Y
+\end{enumerate}
+
+\textbf{Проблемы при оценке}
+
+\begin{enumerate}
+    \item Модель с лаговыми переменными - вместо текущих значений включаются лаговые значения
+    \item Если учитывать несколько лагов - возникает проблема мультиколлинеарности
+    \item \underline{Модель геометрических лагов Койка}
+        \[Y_t = \alpha + \beta X_t + \beta \lambda X_{t - 1} + \beta \lambda^{2} X_{t - 2} + \ldots + \varepsilon_t\]
+        \[0 < \lambda < 1\]
+
+        Зависимость уже не является линейной - убирает проблему мультиколлинеарности
+
+        Сведение к динамической модели:
+        \[Y_{t - 1} = \alpha + \beta X_{t - 1} + \ldots\]
+        \[Y_t - \lambda Y_{t - 1} = \alpha (1 - \lambda) + \beta X_t + \varepsilon_t - \lambda \varepsilon_{t-1}\]
+
+        Сильное предположение о экспоненциальном убывании влияния
 \end{enumerate}
 \end{document}
+
