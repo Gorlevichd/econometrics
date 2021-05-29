@@ -1570,8 +1570,39 @@ $Y_t, X_t$ - временные ряды одного порядка, коэфф
         Сведение к динамической модели:
         \[Y_{t - 1} = \alpha + \beta X_{t - 1} + \ldots\]
         \[Y_t - \lambda Y_{t - 1} = \alpha (1 - \lambda) + \beta X_t + \varepsilon_t - \lambda \varepsilon_{t-1}\]
+        \[Y_t = \alpha (1 - \lambda) + \beta X_t + \lambda Y_{t - 1} + \varepsilon_t - \lambda \varepsilon_{t-1}\]
 
-        Сильное предположение о экспоненциальном убывании влияния
+    \item Сильное предположение о экспоненциальном убывании влияния
+    \item В модели присутствует эндогенность - ее нельзя оценить МНК
+    \item \textbf{Методы оценивания}
+    \begin{enumerate}
+        \item Нелинейный метод оценивания
+        \begin{enumerate}
+            \item Вводим переменную
+            \[Z_t(\lambda) = X_t + \lambda X_{t - 1} + \lambda^{2} X_{t - 2} + \ldots\]
+            \item Для каждого значения $\lambda = 0, 0.1, \ldots, 1$ оцениваем
+            \[Y_t = \alpha + \beta Z_t + \varepsilon_t\]
+            \item Выбираем оценки параметров с минимальным RSS
+        \end{enumerate}
+        \item ММП
+        \begin{enumerate}
+            \item $\varepsilon \sim \mathcal{N}(0, \Omega)$
+        \end{enumerate}
+        \item Метод инструментальных переменных
+        \begin{enumerate}
+            \item Ищем инструменты для $Y_{t - 1}$
+            \item Исходя из предположения, что X экзогенные
+        \end{enumerate}
+    \end{enumerate}
+    \item \underline{Модель Ширли-Алмон}
+    
+    \[Y_t = \alpha + \beta_0 X_t + \beta_1 X_{t - 1} + \ldots + \varepsilon_t\]
+    \[\beta_i = c_0 + c_1 i + c_2 i^2 + \ldots + c_p i^p\]
+    \[Y_t = \alpha + (c_0 X_t + c_0 + c_1 + c_2 + \ldots + c_p) X_{t - 1} + \ldots\]
+    \[Y_t = \alpha + c_0 (X_t + X_{t - 1} + \ldots) + c_1 (X_{t - 1} + 2X_{t - 2} + \ldots)\]
+    
+    \item \underline{Модель адаптивных ожиданий}
+    \[Y_t = \beta_0 + \beta_1 X_{t + 1}^{e} + \varepsilon_t\]
+    \[X_{t + 1}^e - X_t^e = \lambda (X_t - X_t^e)\] 
 \end{enumerate}
 \end{document}
-
