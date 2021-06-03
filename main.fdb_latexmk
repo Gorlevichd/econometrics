@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1622301345 "c:/Users/Tatyana/Downloads/econometrics/main.tex" "main.pdf" "main" 1622301349
+["pdflatex"] 1622702868 "c:/Users/Tatyana/Downloads/econometrics/main.tex" "main.pdf" "main" 1622702876
   "auto.png" 1621326174 82969 19fc772d500f70999ffc818c8abd8ce8 ""
   "auto2.png" 1621326174 68762 1cbd9ba3422034389b17c473a57a7bcd ""
   "c:/Users/Tatyana/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1621248058 3308 eee81981029f67083258db36df06e523 ""
@@ -12,7 +12,7 @@
   "c:/Users/Tatyana/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1621248054 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "c:/Users/Tatyana/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/larm1728.tfm" 1621248049 3252 3140686608bdcae603a09a7973fb9e55 ""
   "c:/Users/Tatyana/.texlive2021/texmf-var/fonts/tfm/lh/lh-t2a/lati1200.tfm" 1621248664 3512 f3a56cfe95a159371df20f73d1eb107d ""
-  "c:/Users/Tatyana/Downloads/econometrics/main.tex" 1622300318 77460 6e0431771a347e68d148c7845d7f0e16 ""
+  "c:/Users/Tatyana/Downloads/econometrics/main.tex" 1622702865 79735 67ad83d2ab232fa77f0d014f4409222f ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc" 1621171896 3141 82d5616418ed8d5de703b3951bedecb4 ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1621171896 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1621172922 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -142,13 +142,13 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1621249303 5218828 4f303caef798cf9a3da258509a8ce44e ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1621249345 2735171 4e7cf45602bbd80e4227a27889528652 ""
   "c:/texlive/2021/texmf.cnf" 1621176414 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1622301348 11775 81b43cb47f7f4b3faf646df40f239f3d "pdflatex"
-  "main.out" 1622301348 16195 ba1ce6c8601a5bbe7d8e8ff077f62574 "pdflatex"
-  "main.tex" 1622300318 77460 6e0431771a347e68d148c7845d7f0e16 ""
-  "main.toc" 1622301348 7778 4a7e3f1a1272d7f092976a1b067f5c97 "pdflatex"
+  "main.aux" 1622702873 11775 8eb2047701e91a96d8c31ea32e03152f "pdflatex"
+  "main.out" 1622702873 16195 ba1ce6c8601a5bbe7d8e8ff077f62574 "pdflatex"
+  "main.tex" 1622702865 79735 67ad83d2ab232fa77f0d014f4409222f ""
+  "main.toc" 1622702873 7778 4a7e3f1a1272d7f092976a1b067f5c97 "pdflatex"
   (generated)
-  "main.pdf"
+  "main.aux"
   "main.toc"
   "main.log"
-  "main.aux"
   "main.out"
+  "main.pdf"

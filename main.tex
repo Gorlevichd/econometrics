@@ -1604,5 +1604,35 @@ $Y_t, X_t$ - временные ряды одного порядка, коэфф
     \item \underline{Модель адаптивных ожиданий}
     \[Y_t = \beta_0 + \beta_1 X_{t + 1}^{e} + \varepsilon_t\]
     \[X_{t + 1}^e - X_t^e = \lambda (X_t - X_t^e)\] 
+    \[X_{t + 1}^e = \lambda X_t + (1 - \lambda)X_t^e\]
+    \[Y_t = \beta_0 + \beta_1 (\lambda X_t + (1 - \lambda) X_t^e) + \varepsilon_t\]
+    \[Y_t = \beta_0 + \beta_1 \lambda X_t + \beta_1 \lambda (1 - \lambda) X_{t - 1} + \beta_1 (1 - \lambda)^2 X_{t - 1}^e + \varepsilon_t\]
+    \[Y_t = \ldots\]
+    \begin{enumerate}
+        \item Получается модель геометрических лагов Койка
+        \item Сводим к динамической модели
+        \[Y_t = \beta_0 + \beta_1 \lambda X_t + (1 - \lambda)(Y_{t - 1} - \beta_0 - \varepsilon_{t - 1}) + \varepsilon_t\]
+        \item Интерпретация оценок параметров
+        \item Если X увеличится на 1 единицу, то Y увеличится на $\beta_1$ единиц
+        \item Станционарный уровень: $Y^* = \beta_0 + \beta_1 X^*$
+    \end{enumerate}
+    \item \underline{Модель частичной корректировки}
+    \[Y^* = \beta_0 + \beta_1 X_t + \varepsilon_t\]
+    \[Y_t - Y_{t - 1} = \lambda (Y_t^* - Y_{t - 1})\]
+    \[Y_t = \lambda Y_t^* + (1 - \lambda)Y_{t - 1}\]
+    \begin{enumerate}
+        \item $Y^*$ - желаемое значение
+        \item Сводим к динамической модели
+        \[Y_t = \lambda (\beta_0 - \beta_1 X_t + \varepsilon_t) + (1 - \lambda) Y_{t - 1}\]
+        \item Станционарный уровень: $Y^* = \beta_0 + \beta_1 X^*$
+    \end{enumerate}
+    \item \underline{Модель коррекции ошибками}
+    \begin{enumerate}
+        \item Если между двумя рядами обнаружена коинтеграция, 
+        то эту информацию необходимо использовать, чтобы построить более полную и корректную модель
+        \[\Delta y_t = \sum_{i = 1}^{p}b_i \Delta y_{t - i} + \sum_{i = 1}^q c_i \Delta x_{t - i} - \gamma (y_{t - 1} - \alpha_0 + \beta_1 x_{t - 1} + \varepsilon_t)\]
+        \item Коэффициенты b, c означают подстройку текущих значений
+        под долгосрочное равновесие
+    \end{enumerate}
 \end{enumerate}
 \end{document}
