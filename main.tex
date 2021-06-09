@@ -22,6 +22,335 @@
 \tableofcontents
 \pagebreak
 
+\part{Семестр 1}
+
+\section{Линейная регрессия}
+
+Линейная регрессия:
+
+\textit{Теоретический вид:}
+
+\[Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\]
+
+\textit{Выборочная регрессия:}
+
+\[\hat{Y} = \hat{\beta}_0 + \hat{\beta}_1 X\]
+
+Остатки регрессии:
+
+\[e_i = Y_i - \hat{Y}_i\]
+
+Задача: Минимизировать остатки регрессии
+
+\textbf{Критерий: Residual sum of squares}
+
+\[RSS = \sum_{i = 1}^{n} e^2_i \rightarrow min_{\beta_0, \beta_1}\]
+
+Решение задачи:
+
+\[RSS(\hat{\beta}_0, \hat{\beta}_1) = 
+\sum_{i = 1}^n(Y_i - \hat{\beta}_0 + \hat{\beta}_1 X_i)^2\]
+\[\frac{\partial RSS}{\partial \beta_0} = -2\sum_{i = 1}^n(Y_i - \hat{\beta}_0 + \hat{\beta}_1 X_i) = 0 \rightarrow
+\sum_{i = 1}^n Y_i - n\hat{\beta}_0 - \hat{\beta}_1\sum_{i = 1}^n X_i = 0;
+\]
+\[\frac{\partial RSS}{\partial \beta_1} = 
+-2 \sum_{i = 1}^n (Y_i - \hat{\beta}_0 + \hat{\beta}_1 X_i)X_i = 
+\sum Y_i - \hat{\beta}_0 \sum X_i - \hat{\beta}_1 \sum X_i^2 = 0\]
+
+\underline{Система нормальных уравнений}
+
+\[\begin{cases}
+    n \hat{\beta}_0 + \beta_1 \sum X_i = \sum Y_i \\
+    \hat{\beta}_0 \sum X_i + \hat{\beta}_1 \sum X_i^2 = \sum Y_i X_i
+\end{cases}
+\]
+
+Решение:
+
+\[
+\begin{cases}
+    \hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X} \\
+    \hat{\beta}_1 = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sum (X_i - \bar{X})^2} = \frac{\hat{Cov}(X; Y)}{\hat{Var}(X)}    
+\end{cases}
+\]
+
+\subsection{Свойства линейной регрессии}
+
+\begin{enumerate}
+    \item $\hat{\beta}_0 = \bar{Y} - \hat{\beta}_1 \bar{X} \rightarrow$ Линия регрессии проходит через $(\bar{X}, \bar{Y})$
+    \item Отсутствие систематической ошибки $\rightarrow \sum_{i = 1}^n e_i = 0$
+    \item $\sum_{i = 1}^n Y_i = \sum_{i = 1}^n \hat{Y}_i \rightarrow$
+    \item $\bar{Y} = \hat{Y}_{\textrm{ср}}$
+    \item $\sum_{i = 1}^n X_i e_i = 0 \rightarrow$ векторы ортогональны
+    \item $\sum_{i = 1}^n \hat{Y_i} e_i = 0 \rightarrow$ векторы ортогональны
+\end{enumerate}
+
+\subsection{Дисперсионный анализ}
+
+\[\hat{Var}(Y) = \frac{1}{n - 1}\sum_{i = 1}^n (Y_i - \bar{Y})^2 \rightarrow \hat{y}_i + e_i\]
+\[y_i^2 = \hat{y}_i^2 + 2\hat{y}_i e_i + e_i^2\]
+\[\sum y_i^2 = \sum_{i = 1}^n \hat{y}_i^2 + 2 \sum_{i = 1}^n \hat{y}_i e_i + \sum_{i = 1}^n e_i^2 \xrightarrow[]{\sum(\hat{y}_i e_i) = 0} \sum_{i = 1}^n y_i^2 = \sum_{i = 1}^n \hat{y}_i^2 + \sum_{i = 1}^n e_i^2\]
+\[TSS = \sum_{i = 1}^n y_i^2\]
+\[ESS = \sum_{i = 1}^n \hat{y}_i^2\]
+\[RSS = \sum_{i = 1}^n e_i^2\]
+\[TSS = RSS + ESS\]
+
+\textbf{Качество подборки регрессии $R^2$}
+
+\[0 < R^{2} = \frac{ESS}{TSS} = \frac{\sum (\hat{Y}_i - \bar{Y})^2}{\sum (Y_i - \bar{Y})^2} =\frac{\hat{Var}(\hat{Y})}{\hat{Var}(Y)}< 1\]
+
+Представляет собой долю дисперсии Y, объясняющаяся X
+
+\subsection{Интервальные оценки}
+
+\[\hat{\beta}_1 = \frac{\hat{Cov}(X, Y)}{\hat{Var}(X)} = \beta_1 + \frac{Cov(X, \varepsilon)}{Var(X)}\]
+
+\subsection{Теорема Гаусса-Маркова}
+
+\begin{enumerate}
+    \item Модель правильно специфицирована
+    \begin{enumerate}
+        \item Есть все необходимые факторы
+        \item Нет лишних факторов
+        \item Правильно выбрана функциональная форма модели
+    \end{enumerate}
+    \item X детерминированы и не равны
+    \item $E(\varepsilon_i) = 0$
+    \item $Var(\varepsilon_i) = \sigma_{\varepsilon}^2$
+    \item $Cov(\varepsilon_i, \varepsilon_j) = 0$
+\end{enumerate}
+
+При выполнении данных условий \textbf{оценки модели являются BLUE(best linear unbiased estimator)}
+
+\subsection{Стандартные ошибки регрессии}
+
+\[\varepsilon_i \sim \mathcal{N}(0, \sigma_{\varepsilon}^2) \rightarrow 
+\begin{cases}
+    \hat{\beta}_0 \sim \mathcal{N}(\beta_0, \frac{\sum X_i^2\sigma_{\varepsilon}^2}{n\sum x_i^{2}}) \\ 
+    \hat{\beta}_1 \sim \mathcal{N}(\beta_1, \frac{\sigma_{\varepsilon}^2}{\sum x_i^2})
+\end{cases}\]
+
+\[\sigma_{\varepsilon}^2 = \frac{RSS}{n - 2}\]
+\[\frac{RSS}{\sigma_{\varepsilon}^2} \sim \chi_{n - 2}^2\]
+
+\textbf{Гипотезы о коэффициентах регрессии}
+
+\[
+\begin{cases}
+    H_0: \beta_1 = \beta_1^{0} \\
+    H_1: \beta_1 \neq \beta_1^0 \\
+\end{cases}
+\]
+
+$\beta_1^{0}$ - Математическое ожидание
+
+\[\frac{\hat{\beta_1} - \beta_1^0}{s.e.(\hat{\beta}_1)} \sim t_{n-2}\]
+
+\textbf{Гипотеза о значимости коэффициентов}
+
+\[
+\begin{cases}
+    H_0: \beta_1 = 0 \\
+    H_1: \beta_1 \neq 0 \\
+\end{cases}
+\]
+
+\[t = \frac{\hat{\beta}_1}{s.e.(\hat{beta}_1)} \sim t_{n -2}\]
+
+\begin{center}
+    \fbox{Если P-value < $\alpha \rightarrow$ Коэффициент является значимым}
+\end{center}
+
+\subsection{Доверительные интервалы для оценки коэффициентов}
+
+\[\hat{\beta}_1 - t_{\frac{\alpha}{2}}^{n - 2} \cdot s.e.(\hat{\beta}_1) \leq \beta_1^0 \leq \ldots\]
+
+\subsection{Предсказания с помощью регрессии}
+
+\textbf{Точечный прогноз:}
+
+\[\hat{Y}_{n + 1} = \hat{\beta}_0 + \hat{\beta}_1 X_{n + 1}\]
+
+\textbf{Интервальный прогноз:}
+
+\[\hat{\beta}_0 + \hat{\beta}_1 X_{n + 1} \pm t_{n - 2, \alpha / 2} \cdot \sqrt{\hat{\sigma}_{\varepsilon}^2\left[1 + \frac{1}{n} + \frac{X_{n + 1} - \bar{X}}{\sum x_i^2}\right]}\]
+
+\textbf{Ошибка среднего прогноза}
+
+\[\sigma_{\varepsilon}^2 \cdot \left[(\frac{1}{n} + \frac{\bar{X}^2}{\sum x_i^2}) + \frac{X_{n + 2}^2}{\sum x_i^2} - \frac{2 X_{n + 1}\bar{X}}{\sum x_i^2}\right]\]
+
+\subsection{Нормальность распределения остатков}
+
+\begin{enumerate}
+    \item Сравнение гистограммы остатков с гистограммой $\mathcal{N}$
+    \item Q-Q Plot
+    \item Jarque-Bera test
+    \[\begin{cases}
+        H_0: e_i \sim \mathcal{N} \\
+        H_1: e_i \not{\sim} \mathcal{N}
+    \end{cases}\]
+    \[JB = \frac{n}{6}\left(sk^2 + \frac{1}{4}(k - 3)^2\right) \sim \chi^{2}(2)\]
+    \[sk = \frac{1}{n}\sum \frac{(X_i - \bar{X})^3}{\hat{\sigma}^3}\]
+    \[k = \frac{1}{n}\sum\frac{(X_i - \bar{X})^4}{\hat{\sigma}^4}\]
+    \item Тест Шапиро-Вилка
+    \item Тест Колмогорова-Смирнова
+\end{enumerate}
+
+\section{Множественная линейная регрессия}
+
+Работаем в пространстве $R^n$
+
+\[Y_i = \beta_0 + \beta_1 X_{1i} + \ldots + \beta_kX_{ki} + \varepsilon_i, i = 1, \ldots, n\]
+
+\textbf{Векторный вид:}
+
+\[X = \begin{pmatrix}
+    1 & X_{11} & \ldots & X_{k1} \\
+    1 & & & \\
+    \ldots & \ldots & \ldots & \ldots \\
+    1 & X_{1n} & \ldots & X_{kn} \\
+\end{pmatrix}_{n \times k + 1}\]
+\[\beta = \begin{pmatrix}
+    \beta_0 \\
+    \ldots \\
+    \beta_{k}
+\end{pmatrix}_{k + 1 \times 1}\]
+
+\[Y = \beta X + \varepsilon\]
+
+\textbf{Задача в векторном виде}
+
+\[\sum e_i^2 = Y^T Y - 2\hat{\beta}^{T}X^{T}Y + \hat{\beta}^T X^T X \hat{\beta} \rightarrow min\]
+\[\frac{\partial RSS}{\partial \beta} = -2X^{T}Y + 2X^{T}X\hat{\beta} = 0\]
+\[\hat{\beta} = (X^TX)^{-1}X^TY\]
+
+\subsection{Теорема Гаусса-Маркова для МЛР}
+
+\textit{Если:}
+
+\begin{enumerate}
+    \item Модель правильно специфицирована
+    \item Не существует линейной связи между регрессорами
+    \item $E(\varepsilon_i) = 0$
+    \item $Var(\varepsilon_i) = \sigma^2_\varepsilon$
+    \item $Cov(\varepsilon_i, \varepsilon_j) = 0$
+\end{enumerate}
+
+\[Var[\varepsilon] = 
+\begin{pmatrix}
+    \sigma_{\varepsilon}^2 & \cdots & 0 \\
+    & \ddots & \\
+    0 & \cdots & \sigma^{2}_{\varepsilon}
+\end{pmatrix}
+\]
+\textit{То:}
+
+\begin{enumerate}
+    \item $E(\hat{\beta}) = \beta$ - несмещенная
+    \item Линейная
+    \item $Var(X\beta + \varepsilon) = Var(\varepsilon) = \sigma_{\varepsilon}^2I_n$
+\end{enumerate}
+
+\[\hat{Var}(\hat{\beta}) = \sigma_{\varepsilon}^2(X^TX)^{-1}\]
+\[s.e.(\hat{\beta}) = \sqrt{\sigma_{\varepsilon}^2(X^TX)^{-1}}\]
+\[\sigma_{\varepsilon}^2 = \frac{RSS}{n - k - 1}\]
+
+\subsection{Коэффициент множественной детерминации}
+
+\[R^{2} = \sum_{i = 1}^k \beta_{i}\frac{\hat{Cov}(X_i, Y)}{\hat{Var}(Y)}\]
+
+\textbf{Недостаток:}
+
+Растет при добавлении любого регрессора, независимо от его качества.
+
+Используем $R^2_{adj}$ - он штрафует за лишние факторы
+
+\[R_{adj}^2 = 1 - \frac{RSS / (n - k - 1)}{TSS / (n - 1)}\]
+
+Если в регрессии нет свободного члена $\rightarrow R^{2}, R^{2}_adj$
+не являются показателями качества
+
+\begin{enumerate}
+    \item $\sum e_i \neq 0$
+    \item $TSS \neq ESS + RSS$
+    \item $R^{2} \neq 1 - \frac{RSS}{TSS}$
+\end{enumerate}
+
+\subsection{Проверка значимости коэффициентов множественной регрессии}
+
+\[\begin{cases}
+    H_0: \beta_j = 0 \textrm{ - незначим} \\
+    H_1: \beta_j \neq 0
+\end{cases}\]
+
+\[t = \frac{\hat{\beta}_j}{s.e.(\hat{\beta}_j)} \sim t_{n - k - 1}\]
+
+\subsection{Гипотеза об адекватности МЛР}
+
+\[
+\begin{cases}
+    H_0: \beta_1 = \cdots = \beta_k = 0 \\
+    H_1: \exists \beta_i \neq 0    
+\end{cases}
+\]
+
+\[F(k, n - k - 1) = \frac{R^2 / k}{(1 - R^2 / (n - k - 1))} \sim F(k, n - k - 1)\]
+
+\begin{center}
+    \fbox{$Pvalue < \alpha \rightarrow$ Регрессия адекватна}    
+\end{center}
+
+\subsection{Гипотеза о Q линейных ограничений}
+
+$H_0$: Имеют место q линейных ограничений лин. регрессии, 
+эти ограничения независимы
+
+\[\frac{(RSS_R - RSS_U) / q}{RSS_U / (n - k - 1)} \sim F(q, n - k - 1)\]
+
+\section{Фиктивные переменные}
+
+Dummy variable: $D_i = \{0, 1\}$
+
+\[Y = \beta_0 + \sigma D + \beta_1 X + \varepsilon\]
+
+Или с учетом углового коэффициента
+
+\[Y = \beta_0 + \sigma D + \beta_1 X + \lambda N + \varepsilon\]
+
+\textbf{Гипотеза:}
+
+\[
+\begin{cases}
+    H_0: \sigma = \lambda = 0 \\
+    H_1: \sigma^2 + \lambda^2 > 0
+\end{cases}
+\]
+
+\[\frac{(RSS_R - RSS_U) / 2}{RSS_U / (n - (k + 1))} \sim F(2, n - k - 1)\]
+
+\textbf{Тест Чоу}
+
+\begin{enumerate}
+    \item Оцениваем модели по отдельности
+    \[
+        H_0: \beta^{\prime}_0 = \beta^{\prime \prime}_0, \ldots, \sigma^2_{\varepsilon^{\prime}} = \sigma^2_{\varepsilon^{\prime\prime}}
+    \]
+    \item Два типа теста Чоу
+    \begin{enumerate}
+        \item $F = \frac{(RSS_R - RSS_U) / (k + 1)}{RSS_U / (n - 2(k + 1))}$
+        \item $\frac{(RSS_p - \left[RSS_1 + RSS_2\right]) / (k + 1)}
+        {\left[RSS_1 + RSS_2\right] / (n - 2(k + 1))}$
+        \item $RSS_p$ - по всем наблюдениям, $RSS_1, RSS_2$ - по частям данных
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Dummy для m-градаций}
+
+Разбиваем каждый m на dummy. 
+
+\textit{При этом нужно брать m - 1 dummy,} поскольку
+иначе сумма дамми переменных будет коллинеарна с $\beta_0$
+столбцом
 \part{Модуль 3}
 
 \section{Гетероскедастичность}
@@ -775,7 +1104,7 @@ $E(\varepsilon \varepsilon') = \Sigma$
     \item Данные упорядочены
     \item Измерения должны быть в каждый момент времени
     \item Данные могут быть различной частотности
-    \item \fbox{Временной ряд $\{X_{t}\}_{t = -\infty}^{\infty}$ - это последовательность случайных величин, заданных на одном вероятностном пространстве}
+    \item Временной ряд $\{X_{t}\}_{t = -\infty}^{\infty}$ - это последовательность случайных величин, заданных на одном вероятностном пространстве
     \begin{itemize}
         \item Реализация части этой последовательности тоже называется временным рядом
     \end{itemize}
@@ -1635,4 +1964,124 @@ $Y_t, X_t$ - временные ряды одного порядка, коэфф
         под долгосрочное равновесие
     \end{enumerate}
 \end{enumerate}
+
+\section{Панельные данные}
+
+Панельные данные:
+
+\[Y_{it} = \alpha_i + X_{it}^{\prime} \beta + u_{it}\]
+
+$i = 1, \ldots, N$ - Номер индивида
+$t = 1, \ldots, T$ - Момент времени
+
+\subsection{Способ представления данных}
+\subsubsection{Pooled regression}
+
+Используем данные об одном и том же индивиде в разные моменты времени,
+как разные наблюдения и оцениваем по выборке из $N \cdot T$ наблюдений.
+
+\textbf{Проблема такого метода:}
+
+Индивидуальные регрессии по углам наклона могут сильно отличатся от общей регрессии
+- можем получить смещенные результаты.
+
+Обычно t имеет более низкую размерность по сравнению c i 
+
+\subsubsection{Модели с фиксированными переменными}
+
+\[Y_{it} = \alpha_i + X_{it}^{\prime}\beta + u_{it}\]
+
+$\beta$ одинаковы для всех наблюдений
+
+$\alpha$ разные для индивидов, одинаковы для временных промежутков
+
+\[E(\alpha_i) = const, var(\alpha_i) = 0\]
+
+\textbf{Оценка моделей:}
+
+\begin{enumerate}
+    \item Вводим дамми переменные для всех индивидов
+    \item Число степеней свободы: NT - N - k
+    \item Если N велико, а T мало - число степеней свободы мало 
+    $\rightarrow$ снижает эффективность + возникает проблема мультиколлинеарности
+\end{enumerate}
+
+\textbf{Сравнение моделей:}
+
+\[\begin{cases}
+    H_0: \alpha_1 = \ldots = \alpha_N \\
+    H_1: \exists \alpha_i \neq \alpha_j
+\end{cases}\]
+
+\[F = \frac{(RSS_{pooled} - RSS_{FE}) / (N - 1)}{RSS_{FE} / (NT - N - k)}\]
+
+\subsubsection{Between Regression}
+
+Усредняем значения для всех моментов времени
+
+\[Y_{i} = \frac{1}{T}\sum_{t = 1}^{T}Y_{it}\]
+\[Y_i = \alpha_i + X_i^\prime \beta + u_i\]
+
+\subsubsection{Within Regression}
+
+\[Y_{it} - \bar{Y_{i}} = (X_{it}^{\prime} - \bar{X_i}^{\prime})\beta + \varepsilon_{it} - \varepsilon_i\]
+\[\hat{\beta_{W}} = \hat{\beta_{FE}}, RSS_{W}\]
+
+При этом, нет проблем со степенями свободы.
+
+\subsubsection{Модели со случайными эффектами}
+
+\[Y_{it} = X_{it}^{\prime} \beta + const + \alpha_{i} + \varepsilon_{it}\]
+\[E(\alpha_i) = 0, var(\alpha_i) = \sigma_{\alpha}^2\]
+
+const позволяет свести мат. ожидание $\alpha$ к 0
+
+Теперь надо оценить только константу и дисперсию alpha
+
+\[\Sigma = \begin{pmatrix}
+    \sigma_{\alpha}^2 + \sigma_{\varepsilon}^{2} & \sigma_{\alpha}^2 & \ldots & \sigma_{\alpha}^2 \\
+    \sigma_{\alpha}^2 & \sigma_{\alpha}^2 + \sigma_{\varepsilon}^{2} & \ldots & \sigma_{\alpha}^2 \\
+    \ldots & \ldots & \ldots & \ldots \\
+    \sigma_{\alpha}^2 & \ldots & \sigma_{\alpha}^2 + \sigma_{\varepsilon}^{2} & \sigma_{\alpha}^2 \\
+    \sigma_{\alpha}^2 & \ldots & \ldots & \sigma_{\alpha}^2 + \sigma_{\varepsilon}^{2}
+\end{pmatrix}\]
+
+\[\Omega = \begin{pmatrix}\Sigma & & \\ & \ddots & \\ & & \Sigma\end{pmatrix}\]
+\[\hat{\beta}_{RE} = (X'\Omega^{-1}X)^{-1}X'\Omega Y\]
+
+Эти модели более эффективны по сравнению с FE.
+При этом, альфы могут коррелировать с X.
+
+\textbf{Сравнение моделей:}
+
+\textit{Сквозная модель vs Модель со случайными эффектами}
+
+\[\begin{cases}
+    H_0: \sigma_{\alpha}^2 = 0 \\
+    H_1: \sigma_{\alpha}^2 \neq 0
+\end{cases}\]
+
+Оценивается с помощью теста Бройша-Пагана или LM
+
+\[F = \frac{\hat{\sigma}_{B}^{2}}{\hat{\sigma}_{W}^{2}} \sim F(N - k, NT - N - k)\]
+\[LM = \frac{NT}{2(T - 1)}\left[\frac{T^2\sum_{i = 1}^{N}\varepsilon_{i}}{\sum_{i = 1}^{N}\sum_{t = 1}^{T}\varepsilon_{it}^2} - 1\right]^2\]
+
+\textit{FE vs Случайные эффекты}
+
+\[\begin{cases}
+    H_0: RE \leftrightarrow corr(\alpha_i, X_{it}) = 0 \rightarrow \textrm{Оценки состоятельны, Разница мала}\\
+    H_1: FE \leftrightarrow corr(\alpha_i, X_{it}) \neq 0 \rightarrow \textrm{Только FE состоятельна}
+\end{cases}\]
+
+Тест Хаусмана:
+
+\[m = \hat{q}'var^{-1}(\hat{q})\hat{q} \sim \chi^2_k\]
+\[\hat{q} = \hat{\beta}_{FE} - \hat{\beta}_{RE}\]
+
+\subsubsection{Модель с фиксированными индивидуальными эффектами и временными эффектами}
+
+\[Y_{it} = \alpha_i + X_{it}^\prime \beta + c_t + u_i\]
+
+Включаются дамми-переменные для каждого момента времени и
+каждого индивида
 \end{document}
