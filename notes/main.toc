@@ -1,0 +1,132 @@
+\babel@toc {english}{}
+\contentsline {part}{I\hspace {1em}Семестр 1}{5}{part.1}%
+\contentsline {section}{\numberline {1}Линейная регрессия}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Свойства линейной регрессии}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Дисперсионный анализ}{6}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Интервальные оценки}{6}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Теорема Гаусса-Маркова}{6}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Стандартные ошибки регрессии}{7}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Доверительные интервалы для оценки коэффициентов}{7}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Предсказания с помощью регрессии}{7}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Нормальность распределения остатков}{8}{subsection.1.8}%
+\contentsline {section}{\numberline {2}Множественная линейная регрессия}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Теорема Гаусса-Маркова для МЛР}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Коэффициент множественной детерминации}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Проверка значимости коэффициентов множественной регрессии}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Гипотеза об адекватности МЛР}{10}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Гипотеза о Q линейных ограничений}{10}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Фиктивные переменные}{10}{section.3}%
+\contentsline {section}{\numberline {4}Выбросы}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Vertical Outliers}{11}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Bad Leverage}{11}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Функциональные преобразования переменных}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Формы моделей}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Тесты}{13}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Тест Бокса-Кокса}{13}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Тест Пола-Зарембки}{13}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}BM тест}{14}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}PE тест}{14}{subsubsection.5.2.4}%
+\contentsline {section}{\numberline {6}Ошибки спецификации}{14}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Невключение существенной переменной}{14}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Включение лишней переменной}{15}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Теорема о корне из R}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}RESET}{15}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Мультиколлинеарность}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Критерии мультиколлинеарности}{16}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}VIF}{16}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Conditional number}{16}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Методы борьбы с мультиколлинеарностью}{16}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}PCA}{16}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Ridge, Lasso}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Ridge}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Выбор $\lambda $}{17}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Прогнозирование по регрессионной модели и его точность}{17}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Точечный прогноз}{17}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Ошибка индивидуального прогноза}{17}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Интервальный прогноз}{17}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Ошибка среднего прогноза}{17}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Интервал для среднего прогноза}{18}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Гетероскедастичность}{18}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Тест Голдфелда-Квандта}{18}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Тест Глейзера}{18}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Тест Уайта}{18}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Тест Бройша-Пагана}{19}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Взвешенный метод обобщенных квадратов}{19}{subsection.10.5}%
+\contentsline {subsection}{\numberline {10.6}Стандартные ошибки Уайта}{19}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Обобщенный метод наименьших квадратов}{20}{subsection.10.7}%
+\contentsline {part}{II\hspace {1em}Модуль 3}{21}{part.2}%
+\contentsline {section}{\numberline {11}Метод максимального правдоподобия}{21}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Регрессия}{21}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Тест Вальда}{21}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Тест отношения правдоподобия}{22}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Тест множителей Лагранжа}{22}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Критерий Акаике}{22}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Критерий Шварца}{22}{subsection.11.6}%
+\contentsline {section}{\numberline {12}Модели бинарного выбора}{23}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Модель линейной вероятности}{23}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Логит-модель}{23}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Пробит-модель}{23}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Оценка качества бинарных моделей}{23}{subsection.12.4}%
+\contentsline {subsubsection}{\numberline {12.4.1}Odd Ratio}{23}{subsubsection.12.4.1}%
+\contentsline {subsubsection}{\numberline {12.4.2}$R^{2}$-МакФаддена}{24}{subsubsection.12.4.2}%
+\contentsline {subsubsection}{\numberline {12.4.3}Pseudo$R^{2}$}{24}{subsubsection.12.4.3}%
+\contentsline {subsubsection}{\numberline {12.4.4}Качество подгонки модели}{24}{subsubsection.12.4.4}%
+\contentsline {subsubsection}{\numberline {12.4.5}Выбор порога отсечения}{24}{subsubsection.12.4.5}%
+\contentsline {section}{\numberline {13}Стохастические регрессоры}{24}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Эндогенность}{24}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Инструментальные переменные}{25}{subsection.13.2}%
+\contentsline {subsubsection}{\numberline {13.2.1}Двухшаговый МНК}{25}{subsubsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.3}Тест Хаусманна}{25}{subsection.13.3}%
+\contentsline {section}{\numberline {14}Обобщенный метод моментов}{26}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Тестирование качества инструментов}{27}{subsection.14.1}%
+\contentsline {section}{\numberline {15}Системы одновременных уравнений}{27}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Общий случай СОУ}{28}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Трехшаговый МНК}{29}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}SUR. Внешне не связанные уравнения}{30}{subsection.15.3}%
+\contentsline {section}{\numberline {16}Модели множественного выбора}{30}{section.16}%
+\contentsline {subsection}{\numberline {16.1}Модели упорядоченного множественного выбора}{30}{subsection.16.1}%
+\contentsline {subsubsection}{\numberline {16.1.1}Гипотеза о параллельности}{31}{subsubsection.16.1.1}%
+\contentsline {subsubsection}{\numberline {16.1.2}Отношение шансов}{31}{subsubsection.16.1.2}%
+\contentsline {subsubsection}{\numberline {16.1.3}Предельные эффекты}{31}{subsubsection.16.1.3}%
+\contentsline {subsection}{\numberline {16.2}Мультиномиальные модели}{31}{subsection.16.2}%
+\contentsline {section}{\numberline {17}Тобит, Sample selection models}{31}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Тобит}{31}{subsection.17.1}%
+\contentsline {subsection}{\numberline {17.2}Модель Хекмана}{32}{subsection.17.2}%
+\contentsline {subsubsection}{\numberline {17.2.1}Оценка}{32}{subsubsection.17.2.1}%
+\contentsline {section}{\numberline {18}Ядерные методы}{32}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Ядерная оценка регрессии}{33}{subsection.18.1}%
+\contentsline {part}{III\hspace {1em}Модуль 4}{34}{part.3}%
+\contentsline {section}{\numberline {19}Временные ряды}{34}{section.19}%
+\contentsline {subsection}{\numberline {19.1}Процессы}{37}{subsection.19.1}%
+\contentsline {subsection}{\numberline {19.2}Диагностика моделей}{39}{subsection.19.2}%
+\contentsline {subsubsection}{\numberline {19.2.1}ACF, PACF}{39}{subsubsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.3}Способы оценки параметров}{41}{subsection.19.3}%
+\contentsline {subsection}{\numberline {19.4}Критерии выбора p и q}{41}{subsection.19.4}%
+\contentsline {subsection}{\numberline {19.5}ARIMA}{41}{subsection.19.5}%
+\contentsline {subsection}{\numberline {19.6}Подход Бокса-Дженкинса}{42}{subsection.19.6}%
+\contentsline {subsection}{\numberline {19.7}Современный подход}{42}{subsection.19.7}%
+\contentsline {subsection}{\numberline {19.8}Автокорреляция случайной составляющей}{42}{subsection.19.8}%
+\contentsline {subsubsection}{\numberline {19.8.1}Тест серий}{43}{subsubsection.19.8.1}%
+\contentsline {subsubsection}{\numberline {19.8.2}Статистика Дарбина-Уотсона}{44}{subsubsection.19.8.2}%
+\contentsline {subsubsection}{\numberline {19.8.3}Устранение автокорреляции}{44}{subsubsection.19.8.3}%
+\contentsline {subsubsection}{\numberline {19.8.4}Оценка параметра автокорреляции}{45}{subsubsection.19.8.4}%
+\contentsline {subsection}{\numberline {19.9}Моделирование сезонности во временных рядах}{46}{subsection.19.9}%
+\contentsline {subsubsection}{\numberline {19.9.1}Модели ARIMA с сезонностью}{46}{subsubsection.19.9.1}%
+\contentsline {subsubsection}{\numberline {19.9.2}SARIMA}{47}{subsubsection.19.9.2}%
+\contentsline {subsubsection}{\numberline {19.9.3}Процедуры сглаживания ряда}{47}{subsubsection.19.9.3}%
+\contentsline {subsection}{\numberline {19.10}Прогнозирование с помощью временных рядов}{48}{subsection.19.10}%
+\contentsline {subsubsection}{\numberline {19.10.1}Прогнозирование по модели ARMA(p, q)}{48}{subsubsection.19.10.1}%
+\contentsline {subsubsection}{\numberline {19.10.2}Коинтеграция временных рядов}{49}{subsubsection.19.10.2}%
+\contentsline {subsection}{\numberline {19.11}Модели с распредленными лагами}{49}{subsection.19.11}%
+\contentsline {section}{\numberline {20}Панельные данные}{51}{section.20}%
+\contentsline {subsection}{\numberline {20.1}Способ представления данных}{51}{subsection.20.1}%
+\contentsline {subsubsection}{\numberline {20.1.1}Pooled regression}{51}{subsubsection.20.1.1}%
+\contentsline {subsubsection}{\numberline {20.1.2}Модели с фиксированными переменными}{52}{subsubsection.20.1.2}%
+\contentsline {subsubsection}{\numberline {20.1.3}Between Regression}{52}{subsubsection.20.1.3}%
+\contentsline {subsubsection}{\numberline {20.1.4}Within Regression}{52}{subsubsection.20.1.4}%
+\contentsline {subsubsection}{\numberline {20.1.5}Модели со случайными эффектами}{52}{subsubsection.20.1.5}%
+\contentsline {subsubsection}{\numberline {20.1.6}Модель с фиксированными индивидуальными эффектами и временными эффектами}{53}{subsubsection.20.1.6}%
+\contentsline {subsection}{\numberline {20.2}Динамические модели панельных данных}{53}{subsection.20.2}%
+\contentsline {subsubsection}{\numberline {20.2.1}Динамические модели с экзогенными переменными}{56}{subsubsection.20.2.1}%
+\contentsline {subsection}{\numberline {20.3}Тестирование качества инструментов}{56}{subsection.20.3}%
+\contentsline {subsection}{\numberline {20.4}Тестирование некореллированности ошибок (AB test)}{56}{subsection.20.4}%
